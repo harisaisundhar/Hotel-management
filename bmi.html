@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+
+    <!-- Meta Information  -->
+
+    <meta charset="UTF-8">
+    <title>Health & Fitness</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Fitness, Health, Personal Training, Training ">
+    <meta name="description" content="A Health & Fitness website for Shane Duggan.">
+    <meta name="author" content="Emmet Delaney">
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+<!-- Fonts  -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <!-- Page Container  -->
+    <div id="page">
+
+        <!-- Header and Menu  -->
+        <header>
+
+            <div id="logo-div">
+                <a href="index.html" class="logo" title="Logo"></a>
+            </div>
+            <nav class="menu">
+                    <a class="menu-item" href="index.html">Home</a>
+                    <a class="menu-item" href="bmi.html">BMI</a>
+                    <a class="menu-item" href="timetables.html">Timetables</a>
+                    <a class="menu-item" href="news.html">News</a>
+                    <a class="menu-item" href="contact.html">Contact</a>
+                    <a class="menu-item" href="register.php">Regiser</a>
+
+            </nav>
+
+
+        </header>
+
+					<div class="container">
+					<div id=bmihead><br>
+						<h2> So, How fit are you? </h2>
+						<p> Lets start with your Body mass Index to calculate just how much fat you have in your body </p>
+					</div>
+						<div class="row">
+							<div class="col-md-6 img1">
+								<img src="images/water.jpeg" alt="" height="250" width="400">
+							</div>
+							<div class="col-md-6 bm1">
+									<h1>Body Mass Index Calculator</h1>
+									<p>Enter your height: <input type="text" class="form-control" id="height"/>
+									    <select type="multiple" id="heightunits">
+									        <option value="metres" selected="selected">metres</option>
+									        <option value="inches">inches</option>
+									    </select>
+									</p>
+									<p>Enter your weight: <input type="text"class="form-control" id="weight"/>
+									    <select type="multiple" id="weightunits">
+									        <option value="kg" selected="selected">kilograms</option>
+									        <option value="lb">pounds</option>
+									    </select>
+									</p>
+									<input type="submit" value="computeBMI" onclick="computeBMI();">
+									<h1>Your BMI is: <span id="output">?</span></h1>
+									<h2>This means you are: <span id="comment"> ?</span> </h2>
+								</div>
+							</div>
+						</div>
+						<div id="BMI calculation">
+
+						<div class="row">
+							<div class="col-md-6 cal1">
+									<h1>Calories per Kg</h1>
+									<form id="weight">
+										<div class="form-group">
+											<label for="lossweight"> how many dropped kgs </label>
+											<input type="text" class="form-control" id="lossweight">
+										</div>
+									<br>
+									<div class="form-group">
+										<label for="days"> how long in days (do you want to take) </label>
+										<input type="text" class="form-control" id="days">
+									</div>
+									<button type="" class="btn">Lets go!</button>
+									 <h1>You need to lose: <h1 id="show-total"></h1></h1><p>calories per day<p><br>
+								</form>
+							</div>
+							<div class="col-md-6 run1">
+								<img src="images/run.jpeg"alt="" height="250" width="400">
+							</div>
+						</div>
+				<center>
+						<div class="row">
+							<div class="col-md-4">
+								<h2>Running</h2>
+								<img src="images/black.png">
+							</div>
+							<div class="col-md-4">
+								<h2>Cycling</h2>
+								<img src="images/cycling (1).png">
+							</div>
+							<div class="col-md-4">
+								<h2>Swimming</h2>
+								<img class="animate" src="images/pip.png">
+							</div>
+						</div>
+						<br><br>
+						</center>
+					    </div>
+						</div>
+						  </div>
+        <footer>
+
+            <aside class="column">
+                <div class="contents">
+                    <h3>Developers</h3>
+                    <p>Harisai 17pw13,<br>Dharani 17pw08,<br>Velu 17pw38.<br></p>
+                </div>
+            </aside>
+            <aside class="column">
+               <div class="contents">
+                    <h3>Location</h3>
+                    <p>PSG college of tech,<br>Peelamedu,<br>coimbatore.</p>
+                </div>
+            </aside>
+            <aside class="column">
+               <div class="contents">
+                <h3>Social Media</h3>
+                    <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.png" alt="facebook" height="40" width="40"></a>
+                    <a href="https://ie.linkedin.com/" target="_blank"><img src="images/linkedin.png" alt="linkedin" height="40" width="40"></a>
+                    <a href="https://www.tumblr.com/" target="_blank"><img src="images/tumblr.png" alt="tumblr" height="40" width="40"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="images/twitter.png" alt="twitter" height="40" width="40"></a>
+                </div>
+            </aside>
+
+
+        </footer>
+				<script src="js/jquery-3.3.1.js"></script>
+				<script src="js/myscripts.js"></script>
+
+    </div>
+
+</body>
+</html>

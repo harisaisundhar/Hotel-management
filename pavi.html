@@ -1,0 +1,70 @@
+
+
+	<?php
+	
+	if(isset($POST['submit'])){
+            $servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "package";
+
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error)
+			{
+				 die("Connection failed: " . $conn->connect_error);
+			}
+           
+//            $product_id = $_POST['product_id'];
+
+            
+            $sql ="SELECT room_no,status FROM room WHERE room_no in ( SELECT room_no FROM look_up WHERE r_id in (SELECT r_id FROM swimming_pool WHERE duration >5 ) ) ";               
+            
+            $retval = $conn->query($sql);
+            
+            if(mysqli_num_rows( $retval )==0) 
+			{
+               die('Could not retrieve data: ' . $conn->connect_error);
+            }
+			else
+			{
+			echo "<table border=1>";
+				while($row=$retval->fetch_assoc())
+				{
+					echo "<tr>";
+						echo "<td>".$row['room_no']."</td>";
+						echo "<td>".$row['status']."</td>";
+						
+					echo "</tr>";
+					
+				}
+			echo "</table>";
+			}
+            $conn->close(); 
+	}	
+			else {
+            
+			?>
+	
+	<html>
+     <head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+     </head>
+     <body>
+	 <div id="content">
+      <center>
+	  <h1>Display BILL</h1>
+      <form action ="<?php $_PHP_SELF ?>" method="post">
+       
+        <input type="submit" value="Display Room Details" name="submit"/>
+      </form>
+		</center>
+	  <?php
+        }
+      ?>
+	  </div>
+     </body>
+    </html>
+</body>
+</html>

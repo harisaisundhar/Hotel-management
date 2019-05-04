@@ -1,0 +1,11 @@
+
+$sql = "update room set status=\'A\' where room_no in(select room_no from look_up where r_id in(select r_id from register where (curdate()-check_out_date)=0))";
+
+
+
+$sql = "SELECT sw_cost+laundry_cost+meals_cost as sum from bill LIMIT 0, 30 ";
+
+
+$sql = "SELECT room_No,r_id FROM room\n"
+    . "WHERE room_no in ( SELECT room_no FROM look_up WHERE r_id in (SELECT r_id FROM swimming_pool WHERE duration >5 ) ) \n"
+    . "";

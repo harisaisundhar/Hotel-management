@@ -1,0 +1,32 @@
+
+   
+   
+   DELIMITER //
+CREATE PROCEDURE room_number
+()
+BEGIN
+  SELECT room_no FROM room
+  WHERE status = 'A';
+END //
+DELIMITER ;
+
+
+
+
+
+CREATE TRIGGER bill_trig AFTER INSERT ON meals
+FOR EACH ROW
+  UPDATE bill set meals_cost=meals_cost+new.cost where r_id=new.r_id;
+ 
+ CREATE TRIGGER update_trig AFTER INSERT ON register 
+FOR EACH ROW
+  INSERT INTO bill (r_id) VALUES (new.r_id);
+  
+ CREATE TRIGGER sw_trig AFTER INSERT ON swimming_pool
+FOR EACH ROW
+  UPDATE bill set sw_cost=sw_cost+(new.duration*100) where r_id=new.r_id 
+ 
+ CREATE TRIGGER laundry_trig AFTER INSERT ON laundry
+FOR EACH ROW
+  UPDATE bill set laundry_cost=laundry_cost+new.total_charge where r_id=new.r_id;
+ 

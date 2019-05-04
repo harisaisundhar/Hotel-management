@@ -1,0 +1,54 @@
+DELIMITER $$
+DROP PROCEDURE IF EXISTS proce$$
+CREATE PROCEDURE  proce
+(
+IN userID INT,
+)
+BEGIN
+SELECT name
+FROM register
+WHERE r_id = userId;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+ 
+CREATE PROCEDURE build_email_list1 (INOUT email_list varchar(4000))
+BEGIN
+ 
+ DECLARE v_finished INTEGER DEFAULT 0;
+        DECLARE v_email varchar(100) DEFAULT "";
+ 
+
+ DECLARE email_cursor CURSOR FOR 
+ SELECT email FROM register;
+ 
+ -- declare NOT FOUND handler
+ DECLARE CONTINUE HANDLER 
+        FOR NOT FOUND SET v_finished = 1;
+ 
+ OPEN email_cursor;
+ 
+ get_email: LOOP
+ 
+ FETCH email_cursor INTO v_email;
+ 
+ IF v_finished = 1 THEN 
+ LEAVE get_email;
+ END IF;
+ 
+ -- build email list
+ SET email_list = CONCAT(v_email,";",email_list);
+ 
+ END LOOP get_email;
+ 
+ CLOSE email_cursor;
+ 
+END$$
+ 
+DELIMITER ;
+
+
+SET @email_list = "";
+CALL build_email_list1(@email_list);
+SELECT @email_list;
